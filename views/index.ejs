@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script type="text/javascript">
+
+		
+		$(document).ready(function(){
+			$('#myTable').DataTable();
+			console.log("Test")
+		});
+	</script>
+	<style>
+		body{
+			background-color: whitesmoke;
+			margin: 30px;
+		}
+		.remove{
+			float: right;
+		}
+		.logo{
+			margin-left:500px;
+		}
+		.heading{
+			font-size: 40px;
+		}
+		.hospital{
+			margin-bottom: 15px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<span class="heading"><img class="hospital" src="https://www.absolute.com/-/media/Commercial/images/logos/customers/Sacred-Heart-Hospital.png?mh=200&mw=350&lang=en&hash=868312A4856BC9EE51277D20509A1D214BF317ED" height="50" width="50"/>
+	Sacred Heart Hospital</span>
+	<table id="myTable" class="table table-striped">
+		<thead>
+			<tr>
+				<th>Full Time Staff</th>
+			</tr>
+		</thead>
+		<tbody>
+	<% theStaff.map((member)=>{ %>
+		<tr>
+			<span class="staff"><td><%=member%></span><span class="remove"><a href="/remove/<%=member%>">Remove from schedule</a></span></td>
+		</tr>
+	<% }) %>
+		</tbody>
+	</table>
+
+
+
+	<h2>Wanna Play Jiggly Ball?</h2>
+	<form action="/addNew" method="post">                                             
+		<input type="text" name="newMember" placeholder="Add your name" />
+		<button type="submit">Submit</button>
+		<img class="logo" src="http://placesspacesandposers.pbworks.com/f/1259811743/scrubs%20logo.gif"/ height="75" width="275">
+		</form>
+		
+</body>
+</html>
